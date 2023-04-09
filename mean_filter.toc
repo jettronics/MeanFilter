@@ -1,0 +1,5 @@
+\babel@toc {english}{}
+\contentsline {chapter}{\numberline {1}Mean Filter}{3}{}%
+\contentsline {section}{\numberline {1.1}Moving Average}{3}{}%
+\contentsline {section}{\numberline {1.2}PT1-Filter}{3}{}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
