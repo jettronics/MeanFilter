@@ -250,8 +250,38 @@ K=1\nonumber
 \begin{equation}
 y_{k}=y_{k-1}+\frac{1}{N}\left(x_{k}-y_{k-1}\right)\nonumber
 \end{equation}
+
+
+\section{Low Pass Filterr}
+
+\begin{equation}
+H_{(s)} = \frac{2\pi f_c}{2\pi f_c+s}=\frac{1}{1+\frac{1}{2\pi f_c}s}= \frac{K}{1+T\:s} \nonumber
+\end{equation}
+
+\begin{equation}
+H_{(z)}=Z\big\{H_{(s)}  H_{0(s)} \big\} \nonumber
+\end{equation}
+
+\begin{equation}
+H_{(z)}=Z\bigg\{H_{(s)}  \frac{1}{s (1-e^{-s\:T_a})}\bigg\}=\frac{z-1}{z} Z\bigg\{\frac{H_{(s)}}{s}\bigg\} \nonumber
+\end{equation}
+
+\begin{equation}
+Z\bigg\{\frac{1}{s}\bigg\}=\frac{z}{z-1}
+Z\bigg\{\frac{a}{a+s}\bigg\}=\frac{1-e^{-a\:T_a}}{z-e^{-a\: T_a}} \nonumber
+\end{equation}
+
+\begin{equation}
+H_{(z)}=\frac{z-1}{z} \frac{z}{z-1} K \frac{1-e^{-\frac{T_a}{T}}}{z-e^{-\frac{T_a}{T}}}=K \frac{1-e^{-\frac{T_a}{T}}}{z-e^{-\frac{T_a}{T}}}= \frac{K (1-e^{-\frac{T_a}{T}}) z^{-1}}{(1-e^{-\frac{T_a}{T}}) z^{-1}} \nonumber
+\end{equation}
+
+\begin{equation}
+H_{(z)}=\frac{b_0+b_1\:z^{-1}}{a_0+a_1\:z^{-1}} \:\: \laplace\:\: y_k=b_1\:u_{k-1}-a_1\:y_{k-1}\approx b_1\:u_{k}-a_1\:y_{k-1} \nonumber
+\end{equation}
+
+\begin{equation}
+b_0=0, b_1=K(1-e^{-\frac{T_a}{T}}), a_0=1 (\rightarrow normed), a_1=-e^{-\frac{T_a}{T}} \nonumber
+\end{equation}
+
+
 \end{document}
-
-
-
-
