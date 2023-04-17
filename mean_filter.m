@@ -30,6 +30,13 @@ for i=2:L
   pt1_filter(i) = pt1_filter(i-1) + ((T/(Tau+T))*(K*input(i) - pt1_filter(i-1)));
 end
 
+input_response = zeros(1,L);
+pt1_filter_response = input_response;
+for i=2:L
+  input_response(i) = 1;
+  pt1_filter_response(i) = pt1_filter_response(i-1) + ((T/(Tau+T))*(K*input_response(i) - pt1_filter_response(i-1)));
+end
+
 % LP first order
 lp_filter = input;
 b = K*(1-exp(-(T/Tau))); %0.0625;
@@ -61,13 +68,8 @@ for i=5:L
   morph_filter(i) = (FilterMax(i-2)+FilterMin(i-2))/2;
 end
 
-%{
-bb = [b 0];
-aa = [1 a];
 
-[H,f] = freqz(bb,aa,2000,1000); % Frequenzgang eines zeitdiskreten Systems
-%}
-
+figure(1)
 subplot(1,1,1)
 clf
 plot(t,input,'Color',[0.5 0.5 0.5])
@@ -99,12 +101,37 @@ xlabel('Time in s','fontweight','normal','FontName','Arial', 'FontSize',10)
 title('Output signal','fontweight','normal','FontName','Arial', 'FontSize',12)
 grid on
 
-subplot(3,1,3)
-%plot(ff,Ha)
-plot(f,abs(H),'k')
-%axis([0 100 0 1.2])
-%ylabel('Frequency response')
-xlabel('f in Hz','fontweight','normal','FontName','Arial', 'FontSize',10)
-title('Frequency response','fontweight','normal','FontName','Arial', 'FontSize',12)
-grid on
 %}
+bb = [b 0];
+aa = [1 a];
+
+[H,f] = freqz(bb,aa,2000,Fs); % Frequenzgang eines zeitdiskreten Systems
+
+figure(2)
+subplot(1,1,1)
+%plot(ff,Ha)
+semilogx(f,abs(H),'r')
+axis([0 500 0 1.05])
+%ylabel('Frequency response')
+xlabel('f in Hz','fontweight','normal','FontName','Arial', 'FontSize',12)
+%title('Frequency response','fontweight','normal','FontName','Arial', 'FontSize',12)
+text(5,0.707,'f=fcut=(2 pi T)^{-1} @ 70.7% \rightarrow ','FontSize',12)
+legend('Frequency response Low Pass','FontSize',12)
+grid on
+
+figure(3)
+subplot(1,1,1)
+clf
+plot(t,input_response,'Color',[0.5 0.5 0.5])
+hold on
+plot(t,pt1_filter_response,'g')
+hold on
+axis([-0.01 0.04 0 1.1])
+text(0.005,0.63,'\leftarrow t=T @ 63%','FontSize',12)
+%ylabel('Input signal')
+xlabel('t in s','FontSize',12)
+%title('Input signal','fontweight','normal','FontName','Arial', 'FontSize',12)
+legend('Step','PT1 Response','FontSize',12)
+%axis off
+grid on
+
