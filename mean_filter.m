@@ -47,10 +47,14 @@ end
 
 % Median filter
 median_filter = input;
+median_sorted = zeros(1,9);
 M = 9;
 for i=M:L
    med_vals = input(i-M+1:i);
    med_vals_sort = sort(med_vals);
+   if( i == 50 )
+    median_sorted = med_vals_sort;
+   endif
    median_filter(i) = med_vals_sort(((M/2)+0.5));
 end
 
@@ -101,7 +105,6 @@ xlabel('Time in s','fontweight','normal','FontName','Arial', 'FontSize',10)
 title('Output signal','fontweight','normal','FontName','Arial', 'FontSize',12)
 grid on
 
-%}
 bb = [b 0];
 aa = [1 a];
 
@@ -118,6 +121,7 @@ xlabel('f in Hz','fontweight','normal','FontName','Arial', 'FontSize',12)
 text(5,0.707,'f=fcut=(2 pi T)^{-1} @ 70.7% \rightarrow ','FontSize',12)
 legend('Frequency response Low Pass','FontSize',12)
 grid on
+%}
 
 figure(3)
 subplot(1,1,1)
@@ -135,3 +139,21 @@ legend('Step','PT1 Response','FontSize',12)
 %axis off
 grid on
 
+figure(4)
+subplot(1,1,1)
+clf
+x = 1:9;
+colours = { 'm', 'm', 'm', 'm', 'b', 'm', 'm', 'm', 'm' };
+hold on
+for i = 1 : 9
+  H(i) = bar( x(i), median_sorted(i), 0.4, 'facecolor', colours{i} );
+endfor
+%bar(median_sorted, 'facecolor', colours{'g', 'g', 'g', 'g', 'y', 'r', 'r', 'r', 'r' })
+hold on
+%ylabel('Input signal')
+%xlabel('t in s','FontSize',12)
+%title('Input signal','fontweight','normal','FontName','Arial', 'FontSize',12)
+%text(3.2,300,'Median value \downarrow','FontSize',12)
+%legend('Median Filter','FontSize',12)
+%axis off
+grid on
