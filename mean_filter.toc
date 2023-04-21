@@ -2,5 +2,6 @@
 \contentsline {chapter}{\numberline {1}Mean Filter}{3}{}%
 \contentsline {section}{\numberline {1.1}Moving Average}{3}{}%
 \contentsline {section}{\numberline {1.2}PT1-Filter}{3}{}%
-\contentsline {section}{\numberline {1.3}Low Pass Filterr}{4}{}%
+\contentsline {section}{\numberline {1.3}Low Pass Filter}{4}{}%
+\contentsline {section}{\numberline {1.4}Morphological Filter}{5}{}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

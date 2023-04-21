@@ -252,7 +252,7 @@ y_{k}=y_{k-1}+\frac{1}{N}\left(x_{k}-y_{k-1}\right)\nonumber
 \end{equation}
 
 
-\section{Low Pass Filterr}
+\section{Low Pass Filter}
 
 \begin{equation}
 H_{(s)} = \frac{2\pi f_c}{2\pi f_c+s}=\frac{1}{1+\frac{1}{2\pi f_c}s}= \frac{K}{1+T\:s} \nonumber
@@ -281,6 +281,21 @@ H_{(z)}=\frac{b_0+b_1\:z^{-1}}{a_0+a_1\:z^{-1}} \:\: \laplace\:\: y_k=b_1\:u_{k-
 
 \begin{equation}
 b_0=0, b_1=K(1-e^{-\frac{T_a}{T}}), a_0=1 (\rightarrow normed), a_1=-e^{-\frac{T_a}{T}} \nonumber
+\end{equation}
+
+\newpage
+\section{Morphological Filter}
+
+\begin{equation}
+Erosion \rightarrow (X\ominus B_1)[n] = \min_{\substack{m=0,..M-1}}\Bigg\{X[n+m-M]-B_1[m]\Bigg\} \nonumber
+\end{equation}
+
+\begin{equation}
+Dilation \rightarrow (X\oplus B_2)[n] = \max_{\substack{m=0,..M-1}}\Bigg\{X[n+m-M]-B_2[m]\Bigg\} \nonumber
+\end{equation}
+
+\begin{equation}
+X=\frac{1}{2}\big [(X\ominus B_1) \, + (X\oplus B_2) ] \nonumber
 \end{equation}
 
 

@@ -66,10 +66,10 @@ Mask1 = [10 5 0 5 10];
 Mask2 = [-10 -5 0 -5 -10];
 for i=5:L
   masked = input(i-4:i)-Mask1(1:5);
-  FilterMax(i-2) = max(masked);
+  FilterMax(i) = max(masked);
   masked = input(i-4:i)-Mask2(1:5);
-  FilterMin(i-2) = min(masked);
-  morph_filter(i) = (FilterMax(i-2)+FilterMin(i-2))/2;
+  FilterMin(i) = min(masked);
+  morph_filter(i) = (FilterMax(i)+FilterMin(i))/2;
 end
 
 
@@ -155,5 +155,25 @@ hold on
 %title('Input signal','fontweight','normal','FontName','Arial', 'FontSize',12)
 %text(3.2,300,'Median value \downarrow','FontSize',12)
 %legend('Median Filter','FontSize',12)
+%axis off
+grid on
+
+figure(5)
+subplot(1,1,1)
+clf
+plot(t,input,'Color',[0.5 0.5 0.5])
+hold on
+plot(t,FilterMax,'k.-')
+hold on
+plot(t,FilterMin,'k--')
+hold on
+plot(t,morph_filter,'c')
+hold on
+axis([0.01 0.04 100 700])
+%text(0.005,0.63,'\leftarrow t=T @ 63%','FontSize',12)
+%ylabel('Input signal')
+xlabel('t in s','FontSize',12)
+%title('Input signal','fontweight','normal','FontName','Arial', 'FontSize',12)
+legend('Noise','Dilation','Erosion','Morphological Operation','FontSize',12)
 %axis off
 grid on
