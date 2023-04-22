@@ -88,12 +88,14 @@ plot(t,median_filter,'m')
 hold on
 plot(t,morph_filter,'c')
 hold on
-axis([0 0.21 -600 600])
+%axis([0 0.21 -600 600])
+axis([0.01 0.04 200 600])
 %ylabel('Input signal')
 %xlabel('Time in s','fontweight','normal','FontName','Arial', 'FontSize',10)
 %title('Input signal','fontweight','normal','FontName','Arial', 'FontSize',12)
-legend('Noise','Low Pass','Moving Average','PT1','Median','Morphological Operators','Location','north')
-axis off
+%legend('Noise','Low Pass','Moving Average','PT1','Median','Morphological Operators','Location','north')
+legend('Noise','Low Pass','Moving Average','PT1','Median','Morphological Operators')
+%axis off
 %grid on
 %{
 subplot(2,1,2)
