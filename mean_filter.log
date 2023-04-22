@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.18)  21 APR 2023 21:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.18)  22 APR 2023 15:54
 entering extended mode
 **./mean_filter.tex
 (mean_filter.tex
@@ -1180,23 +1180,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 248--250
 [4] [5]
 
 LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
-(LaTeX3)     302.
+(LaTeX3)     308.
 
 
 LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
-(LaTeX3)     302.
+(LaTeX3)     308.
 
 
 LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
-(LaTeX3)     302.
+(LaTeX3)     308.
 
  (mean_filter.aux) ) 
 Here is how much of TeX's memory you used:
- 23355 strings out of 479799
- 486542 string characters out of 2879601
+ 23359 strings out of 479799
+ 486580 string characters out of 2879601
  915052 words of memory out of 3000000
- 39923 multiletter control sequences out of 15000+200000
- 569428 words of font info for 53 fonts, out of 3000000 for 9000
+ 39925 multiletter control sequences out of 15000+200000
+ 575401 words of font info for 55 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  106i,20n,111p,10608b,456s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{
@@ -1212,7 +1212,7 @@ blic/lm/lmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C
 Files/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Program Files/MiKTeX/fonts/ty
 pe1/public/lm/lmssbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsy1
 0.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsy7.pfb>
-Output written on mean_filter.pdf (5 pages, 156684 bytes).
+Output written on mean_filter.pdf (5 pages, 156794 bytes).
 PDF statistics:
  76 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
