@@ -39,8 +39,8 @@ end
 
 % LP first order
 lp_filter = input;
-b = K*(1-exp(-(T/Tau))); %0.0625;
-a = -exp(-(T/Tau)); %0.9375;
+b = K*(1-exp(-(T/Tau)));
+a = -exp(-(T/Tau));
 for i=2:L
    lp_filter(i) = b*input(i) - a*lp_filter(i-1);
 end
@@ -90,22 +90,11 @@ plot(t,morph_filter,'c')
 hold on
 %axis([0 0.21 -600 600])
 axis([0.01 0.04 200 600])
-%ylabel('Input signal')
 %xlabel('Time in s','fontweight','normal','FontName','Arial', 'FontSize',10)
-%title('Input signal','fontweight','normal','FontName','Arial', 'FontSize',12)
 %legend('Noise','Low Pass','Moving Average','PT1','Median','Morphological Operators','Location','north')
 legend('Noise','Low Pass','Moving Average','PT1','Median','Morphological Operators')
 %axis off
 %grid on
-%{
-subplot(2,1,2)
-plot(t,output,'k')
-%axis([0 0.2 0 1.2])
-%ylabel('Output signal')
-xlabel('Time in s','fontweight','normal','FontName','Arial', 'FontSize',10)
-%axis([0 3 -2 30])
-title('Output signal','fontweight','normal','FontName','Arial', 'FontSize',12)
-grid on
 
 bb = [b 0];
 aa = [1 a];
@@ -117,13 +106,10 @@ subplot(1,1,1)
 %plot(ff,Ha)
 semilogx(f,abs(H),'r')
 axis([0 500 0 1.05])
-%ylabel('Frequency response')
 xlabel('f in Hz','fontweight','normal','FontName','Arial', 'FontSize',12)
-%title('Frequency response','fontweight','normal','FontName','Arial', 'FontSize',12)
 text(5,0.707,'f=fcut=(2 pi T)^{-1} @ 70.7% \rightarrow ','FontSize',12)
 legend('Frequency response Low Pass','FontSize',12)
 grid on
-%}
 
 figure(3)
 subplot(1,1,1)
@@ -134,11 +120,8 @@ plot(t,pt1_filter_response,'g')
 hold on
 axis([-0.01 0.04 0 1.1])
 text(0.005,0.63,'\leftarrow t=T @ 63%','FontSize',12)
-%ylabel('Input signal')
 xlabel('t in s','FontSize',12)
-%title('Input signal','fontweight','normal','FontName','Arial', 'FontSize',12)
 legend('Step','PT1 Response','FontSize',12)
-%axis off
 grid on
 
 figure(4)
@@ -150,14 +133,7 @@ hold on
 for i = 1 : 9
   H(i) = bar( x(i), median_sorted(i), 0.4, 'facecolor', colours{i} );
 endfor
-%bar(median_sorted, 'facecolor', colours{'g', 'g', 'g', 'g', 'y', 'r', 'r', 'r', 'r' })
 hold on
-%ylabel('Input signal')
-%xlabel('t in s','FontSize',12)
-%title('Input signal','fontweight','normal','FontName','Arial', 'FontSize',12)
-%text(3.2,300,'Median value \downarrow','FontSize',12)
-%legend('Median Filter','FontSize',12)
-%axis off
 grid on
 
 figure(5)
@@ -172,10 +148,6 @@ hold on
 plot(t,morph_filter,'c')
 hold on
 axis([0.01 0.04 100 700])
-%text(0.005,0.63,'\leftarrow t=T @ 63%','FontSize',12)
-%ylabel('Input signal')
 xlabel('t in s','FontSize',12)
-%title('Input signal','fontweight','normal','FontName','Arial', 'FontSize',12)
 legend('Noise','Dilation','Erosion','Morphological Operation','FontSize',12)
-%axis off
 grid on
